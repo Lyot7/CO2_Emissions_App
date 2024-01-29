@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CO2 Emissions estimator</title>
+  </head>
+  <body>
+    <h1>Estimateur d'émissions de CO2</h1>
+    <form action="/predict" method="post">
+      <label for="modelyear">Année de fabrication du véhicule:</label><br />
+      <input type="number" id="modelyear" name="modelyear" required /><br />
+      <label for="enginesize">Nombre de chevaux (fiscaux) du véhicule :</label
+      ><br />
+      <input
+        type="number"
+        id="enginesize"
+        name="enginesize"
+        step="0.1"
+        required
+      /><br />
+      <label for="cylinders">Cylindres:</label><br />
+      <input type="number" id="cylinders" name="cylinders" required /><br />
+      <label for="fuelconsumption_comb"
+        >Consommation de litres pour 100Km :</label
+      ><br />
+      <input
+        type="number"
+        id="fuelconsumption_comb"
+        name="fuelconsumption_comb"
+        step="0.1"
+        required
+      /><br />
+      <input
+        type="submit"
+        value="Estimer les émissions de CO2 de mon véhicule"
+      />
+    </form>
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+  </body>
+</html>
