@@ -20,7 +20,7 @@ def predict():
     features = np.array(features).reshape(1, -1)
 
     # Transformer les caractéristiques avec PolynomialFeatures
-    poly = PolynomialFeatures(degree=4)
+    poly = PolynomialFeatures(degree=2)
     features = poly.fit_transform(features)
     
     # Prédire la consommation de CO2
